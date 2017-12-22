@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_0twryos" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="kreditwürdigkeiterm" name="Kreditwürdigkeit ermitteln">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+      <biodi:edge source="InputData_1ezok97">
+        <biodi:waypoints x="430" y="361" />
+        <biodi:waypoints x="380" y="248" />
+      </biodi:edge>
+      <biodi:edge source="InputData_1m7jrml">
+        <biodi:waypoints x="253" y="350" />
+        <biodi:waypoints x="276" y="280" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1ezok97" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_1m7jrml" />
+    </informationRequirement>
+    <decisionTable id="decisionTable" hitPolicy="FIRST">
+      <input id="input1" label="Kredithöhe" camunda:inputVariable="wunschhoeheKredit">
+        <inputExpression id="inputExpression1" typeRef="long">        <text>wunschhoeheKredit</text>
+</inputExpression>
+      </input>
+      <input id="InputClause_0r5yy1z" label="Score" camunda:inputVariable="score">
+        <inputExpression id="LiteralExpression_0sj86z4" typeRef="double">        <text>score</text>
+</inputExpression>
+      </input>
+      <output id="OutputClause_1001tc1" label="Kreditwürdig?" name="kreditwuerdig" typeRef="boolean" />
+      <output id="OutputClause_0g1akap" label="Begründung" name="begruendung" typeRef="string">
+        <outputValues id="UnaryTests_0v8ybdi">        <text><![CDATA["Wir können leider solch hohe Kredite nicht online vergeben.","Mit ihren derzeitigen Score können wir ihnen einen solch hohen Kredit leider nicht vergeben.","Mit ihren derzeitigen Score können wir ihnen keinen Kredit anbieten"]]></text>
+</outputValues>
+      </output>
+      <rule id="row-186329795-1">
+        <inputEntry id="UnaryTests_1fy2tsy">        <text><![CDATA[> 300000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_1isj7h8">        <text></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1e684kt">        <text>false</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_0utvse6">
+          <description></description>
+          <text><![CDATA["Wir können leider solch hohe Kredite nicht online vergeben."]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-186329795-2">
+        <inputEntry id="UnaryTests_13d0ln5">        <text></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_15jiuiq">        <text><![CDATA[> 97.5]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1y47d47">        <text>true</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_165zb9l">        <text></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-3">
+        <inputEntry id="UnaryTests_1pwbphj">        <text><![CDATA[< 200000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_1dj1oso">        <text><![CDATA[>= 95]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1cweyvj">        <text>true</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_1n9rq4a">        <text></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-8">
+        <inputEntry id="UnaryTests_0qvmiwo">        <text><![CDATA[>= 200000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_0lwfafy">        <text><![CDATA[>= 95]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_192mstl">        <text>false</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_1x5zxw7">        <text><![CDATA["Mit ihren derzeitigen Score können wir ihnen einen solch hohen Kredit leider nicht vergeben."]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-4">
+        <inputEntry id="UnaryTests_0417x47">        <text><![CDATA[< 50000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_020yrli">        <text><![CDATA[>= 90]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_16i6obh">        <text>true</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_01g74xx">        <text></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-9">
+        <description></description>
+        <inputEntry id="UnaryTests_0jeltl6">        <text><![CDATA[>= 50000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_05uy000">        <text><![CDATA[>= 90]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1gqruao">        <text>false</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_0s1htzc">        <text><![CDATA["Mit ihren derzeitigen Score können wir ihnen einen solch hohen Kredit leider nicht vergeben."]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-5">
+        <inputEntry id="UnaryTests_0wcfoho">        <text><![CDATA[< 10000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_0f53z0l">        <text><![CDATA[>= 80]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1ub264o">        <text>true</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_1d4ims1">        <text></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-10">
+        <inputEntry id="UnaryTests_1o2aeed">        <text><![CDATA[>= 10000]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_1iyrq0r">        <text><![CDATA[>= 80]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1c95zek">        <text>false</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_0br5l90">        <text><![CDATA["Mit ihren derzeitigen Score können wir ihnen einen solch hohen Kredit leider nicht vergeben."]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-6">
+        <inputEntry id="UnaryTests_0uyrn0m">        <text><![CDATA[< 1500]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_1y5yyoc">        <text><![CDATA[>= 50]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_06o2d09">        <text>true</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_00p910a">        <text></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-11">
+        <inputEntry id="UnaryTests_1es7asi">        <text><![CDATA[>= 1500]]></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_1gfpcpk">        <text><![CDATA[>= 50]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_1fx4t9j">        <text>false</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_19y1ylx">        <text><![CDATA["Mit ihren derzeitigen Score können wir ihnen einen solch hohen Kredit leider nicht vergeben."]]></text>
+</outputEntry>
+      </rule>
+      <rule id="row-186329795-7">
+        <inputEntry id="UnaryTests_1c6p12q">        <text></text>
+</inputEntry>
+        <inputEntry id="UnaryTests_119egcu">        <text><![CDATA[< 50]]></text>
+</inputEntry>
+        <outputEntry id="LiteralExpression_080fhqt">        <text>false</text>
+</outputEntry>
+        <outputEntry id="LiteralExpression_1kvlvr4">        <text><![CDATA["Mit ihren derzeitigen Score können wir ihnen keinen Kredit anbieten"]]></text>
+</outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1ezok97" name="Kredithöhe">
+    <extensionElements>
+      <biodi:bounds x="430" y="343" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_1m7jrml" name="Score">
+    <extensionElements>
+      <biodi:bounds x="182" y="350" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>

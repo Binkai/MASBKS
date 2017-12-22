@@ -1,0 +1,79 @@
+<form class="form-horizontal" charset=utf-8>
+	<script cam-script type="text/form-script">
+	   
+	    $scope.open = function($event) { 
+	        $event.preventDefault(); 
+	        $event.stopPropagation(); 
+	        $scope.dateFieldOpened = true; 
+	    };
+	</script>
+
+	<style>
+.rg-required {
+	vertical-align: super;
+	color: grey;
+	font-size: 75%;
+}
+
+.form-group select:disabled {
+	-webkit-appearance: none;
+	cursor: not-allowed;
+	background-color: #eee;
+	opacity: 1;
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+</style>
+
+	<div class="form-group">
+		Anrede <input cam-variable-type="String" cam-variable-name="anrede"
+			name="anrede" readonly="true">
+	</div>
+
+	<div class="form-group">
+		<label for="vorname">Vorname</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="vorname" name="vorname"
+			readonly="true" />
+	</div>
+
+	<div class="form-group">
+		<label for="nachname">Nachname</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="nachname"
+			name="nachname" readonly="true" />
+	</div>
+	
+	<div>
+
+	<div class="form-group">
+		<label for="rufnummer">Rufnummer</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="rufnummer"
+			name="rufnummer" readonly="true" />
+	</div>
+
+	
+	<div>
+		Gespr&auml;chstermin <input class="form-control"
+			cam-variable-type="String" cam-variable-name="termin" name="termin"
+			datepicker-popup="dd.MM.yyyy" show-button-bar="false"
+			onkeydown="return false;" is-open="dateFieldOpened"
+			ng-click="open($event)" />
+		<div role="alert"></div>
+	</div>
+	
+	
+</form>

@@ -1,0 +1,119 @@
+<form class="form-horizontal" charset=utf-8>
+	<script cam-script type="text/form-script">
+	   
+	    $scope.open = function($event) { 
+	        $event.preventDefault(); 
+	        $event.stopPropagation(); 
+	        $scope.dateFieldOpened = true; 
+	    };
+	</script>
+
+	<style>
+.rg-required {
+	vertical-align: super;
+	color: grey;
+	font-size: 75%;
+}
+
+.form-group select:disabled {
+	-webkit-appearance: none;
+	cursor: not-allowed;
+	background-color: #eee;
+	opacity: 1;
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+</style>
+	<div class="form-group">
+		Anrede <select cam-variable-type="String" cam-variable-name="anrede"
+			name="anrede" required="true">
+			<option value="Herr">Herr</option>
+			<option value="Frau">Frau</option>
+		</select>
+
+	</div>
+
+	<div class="form-group">
+		<label for="vorname">Vorname</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="vorname" name="vorname"
+			required="true" />
+	</div>
+
+	<div class="form-group">
+		<label for="nachname">Nachname</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="nachname"
+			name="nachname" required="true" />
+	</div>
+
+	<div class="form-group">
+		<label for="email">Email</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="email" name="email"
+			required="true" type="email" />
+	</div>
+		<div>
+		Geburstdatum <input class="form-control"
+		type ="text"
+			cam-variable-type="Date" cam-variable-name="geburtsdatum" name="termin"
+       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss" show-button-bar="false"
+			onkeydown="return false;" is-open="dateFieldOpened"
+			ng-click="open($event)" />
+		<div role="alert"></div>
+	</div>
+
+	<div class="form-group">
+		<label for="rufnummer">Rufnummer</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="rufnummer"
+			name="rufnummer" required="true" />
+	</div>
+
+	<div class="form-group">
+	<label for="adresse">
+		Adresse
+		</label>
+		<input class="form-control" name="adresse"
+			cam-variable-name="adresse" cam-variable-type="String" 
+			required="true" />
+	</div>
+	<div class="form-group">
+		<label for="iban">IBAN</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="iban"
+			name="iban" required="true" />
+	</div>
+			<div class="form-group">
+		<label for="bic">BIC</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="bic"
+			name="bic" required="true" />
+	</div>
+		<div class="form-group">
+		<label for="wunschhoeheKredit">Wunschh&oumlhe Kredit</label> <input class="form-control"
+			cam-variable-type="Long" cam-variable-name="wunschhoeheKredit"
+			name="wunschhoeheKredit" required="true" />
+	</div>
+		<div class="form-group">
+		<label for="wunschlaufzeitKredit">Wunschlaufzeit des Kredits</label> <input class="form-control"
+			cam-variable-type="Long" cam-variable-name="wunschlaufzeitKredit"
+			name="wunschlaufzeitKredit" required="true" />
+	</div>
+			<div class="form-group">
+		<label for="verwendungszweck">Ihr Verwendungszweck</label> <input class="form-control"
+			cam-variable-type="String" cam-variable-name="verwendungszweck"
+			name="verwendungszweck" required="true" />
+	</div>
+	
+	
+</form>
