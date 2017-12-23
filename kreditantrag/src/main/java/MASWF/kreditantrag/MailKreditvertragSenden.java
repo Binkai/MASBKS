@@ -18,8 +18,8 @@ public class MailKreditvertragSenden implements JavaDelegate{
 		String anrede = (String) execution.getVariable("anrede");
 		String vorname = (String) execution.getVariable("vorname");
 		String nachname = (String) execution.getVariable("nachname");
-		long wunschhoeheKredit = Long.parseLong((String)execution.getVariable("wunschhoeheKredit")) ;		
-		long wunschlaufzeitKredit = Long.parseLong((String)execution.getVariable("wunschlaufzeitKredit"));
+		long wunschhoeheKredit = ((Long)execution.getVariable("wunschhoeheKredit")) ;		
+		long wunschlaufzeitKredit = (Long)execution.getVariable("wunschlaufzeitKredit");
 		String toEmail = (String) execution.getVariable("email");
 		
 		String subject = "Ihr Kreditvertrag";
@@ -30,7 +30,7 @@ public class MailKreditvertragSenden implements JavaDelegate{
 	
 		// https://docs.camunda.org/manual/7.5/user-guide/process-engine/variables/
 
-		FileValue retrievedTypedFileValue = execution.getVariableTyped("Vertrag");
+		FileValue retrievedTypedFileValue = execution.getVariableTyped("kreditvertrag");
 		InputStream fileContent = retrievedTypedFileValue.getValue(); // bytestream
 		String fileName = retrievedTypedFileValue.getFilename(); // filename
 		String mimeType = retrievedTypedFileValue.getMimeType(); // memetype

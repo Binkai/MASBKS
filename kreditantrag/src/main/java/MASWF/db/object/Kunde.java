@@ -3,10 +3,12 @@ package MASWF.db.object;
 import java.sql.Date;
 
 public class Kunde {
+	private int KundeID;
 	private String Vorname;
 	private String Nachname;
 	private Date Geburtsdatum;
 	private float Score;
+	private float monateinkommen;
 	/**
 	 * @return the vorname
 	 */
@@ -48,5 +50,17 @@ public class Kunde {
 	}
 	public void setScore(float score) {
 		Score = score;
+	}
+	public int getKundeID() {
+		return KundeID;
+	}
+	public void setKundeID(int kundeID) {
+		KundeID = kundeID;
+	}
+	public float getMonateinkommen() {
+		return monateinkommen;
+	}
+	public void setMonateinkommen(float monateinkommen) {
+		this.monateinkommen = monateinkommen;
 	}
 }

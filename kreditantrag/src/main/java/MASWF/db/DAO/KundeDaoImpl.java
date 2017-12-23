@@ -32,6 +32,8 @@ public class KundeDaoImpl implements KundeDao {
 				kunde.setNachname(Nachname);
 				kunde.setGeburtsdatum(new java.sql.Date(Geburtsdatum.getTime()));
 				kunde.setScore(result.getFloat("Score"));
+				kunde.setKundeID(result.getInt("KundenID"));
+				kunde.setMonateinkommen(result.getFloat("monateinkommen"));
 				new JDBCUtil().closeConnection(this.connection);
 				return kunde;
 			}
