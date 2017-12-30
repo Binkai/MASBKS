@@ -13,7 +13,7 @@ public class MailAbsageUnwuerdig implements JavaDelegate {
 		String vorname = (String) execution.getVariable("vorname");
 		String nachname = (String) execution.getVariable("nachname");
 		String email = (String) execution.getVariable("email");
-		String begruendung = (String) execution.getVariable("begruendung");
+		String begruendung= (String) execution.getVariable("Begründung");
 
 		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" + begruendung + "\n Mit freundlichen Grüßen,\n die Berliner Bank BKS.";
 
