@@ -45,7 +45,7 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{ kreditwuerdig == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_07ouedd" name="nein" sourceRef="ExclusiveGateway_0ae7dwa" targetRef="Task_0s8uu1o">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{kreditwuerdig == true}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{kreditwuerdig == false}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1bvdn2b" sourceRef="Task_0s8uu1o" targetRef="EndEvent_11yijhi" />
     <bpmn:sequenceFlow id="SequenceFlow_0hyflpi" sourceRef="Task_14fs54a" targetRef="Task_0um4h11" />
