@@ -41,22 +41,23 @@
 
 function laufzeitTrue()
 {
-	var leer="";
-	var box="<label for=\"wunschlaufzeitKredit\">Wunschlaufzeit des Kredits (in Monaten)</label> <input class=\"form-control\"cam-variable-type=\"Long\" cam-variable-name=\"wunschlaufzeitKredit\"name=\"wunschlaufzeitKredit\" required=\"true\" />";
+	var elem = document.getElementById('laufzeit');
   if (document.getElementById('laufzeitVeraendern').checked) 
   {
-  	document.getElementById('laufzeit').innerHTML= box;
+  	elem.style.visibility = 'visible';
   	
   }else
 	{
-	document.getElementById('laufzeit').innerHTML=leer;
+	elem.style.visibility = 'hidden';
 	}
 }
      
  </script>
 
-	<div class="form-group" id="laufzeit">
-		
+	<div class="form-group" id="laufzeit" style="visibility: hidden">
+		<label for="wunschlaufzeitKredit">Wunschlaufzeit des Kredits (in Monaten)</label>
+		 <input class="form-control"cam-variable-type="Long" 
+		 cam-variable-name="wunschlaufzeitKredit"name="wunschlaufzeitKredit" required="true" />;
 	</div>
 
 	

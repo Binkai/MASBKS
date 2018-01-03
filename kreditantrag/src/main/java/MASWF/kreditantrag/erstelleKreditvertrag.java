@@ -13,6 +13,8 @@ import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.apache.pdfbox.pdmodel.interactive.form.PDTextField;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.camunda.bpm.engine.variable.Variables;
+import org.camunda.bpm.engine.variable.value.FileValue;
 
 public class erstelleKreditvertrag implements JavaDelegate {
 	private final String PDFLocation = "C:/Users/gelbe/git/MASBKS/kreditantrag/src/main/resources/Kreditvertrag.pdf";
@@ -39,20 +41,12 @@ public class erstelleKreditvertrag implements JavaDelegate {
 		}
 		pdfdoc.save(new File(PDFSpeichern));
 		pdfdoc.close();
-		exec.setVariable("kreditvertrag", new File(PDFSpeichern));
+		FileValue typedFileValue= Variables
+				  .fileValue("Kreditvertrag.pdf")
+				  .file(new File(PDFSpeichern))
+				  .mimeType("application/pdf")
+				  .encoding("UTF-8")
+				  .create();
+		exec.setVariable("kreditvertrag", typedFileValue);
 	}
-	// private void setField(String fieldname, String Inhalt){
-	// PDDocumentCatalog cat = pdfdoc.getDocumentCatalog();
-	// PDAcroForm acro = cat.getAcroForm();
-	// if (acro != null) {
-	// PDField field = (PDField) acro.getField(fieldname);
-	// try {
-	// field.setValue(Inhalt);
-	// } catch (IOException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	// }
-	//
-	// }
 }

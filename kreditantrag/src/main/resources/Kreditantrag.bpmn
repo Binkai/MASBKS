@@ -14,7 +14,7 @@
         <bpmn:flowNodeRef>Task_0um4h11</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_1l0s99n</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ExclusiveGateway_0q4eij6</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>IntermediateThrowEvent_0xlets5</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>IntermediateThrowEvent_1ye4gpk</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1bpuxzg" name="Bank System">
         <bpmn:flowNodeRef>Task_1cmr5vu</bpmn:flowNodeRef>
@@ -49,7 +49,6 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{kreditwuerdig == false}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1bvdn2b" sourceRef="Task_0s8uu1o" targetRef="EndEvent_11yijhi" />
-    <bpmn:sequenceFlow id="SequenceFlow_0hyflpi" sourceRef="Task_14fs54a" targetRef="IntermediateThrowEvent_0xlets5" />
     <bpmn:sequenceFlow id="SequenceFlow_0z98xyi" sourceRef="Task_04uwmv3" targetRef="Task_0lhwg2m" />
     <bpmn:sequenceFlow id="SequenceFlow_1x179qk" sourceRef="Task_0lhwg2m" targetRef="EndEvent_0zff2c1" />
     <bpmn:sequenceFlow id="SequenceFlow_00pdj30" name="ja" sourceRef="ExclusiveGateway_1apcdqb" targetRef="Task_1cmr5vu">
@@ -89,7 +88,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1e9vdk0" sourceRef="Task_0w0vu1h" targetRef="Task_14fs54a" />
     <bpmn:userTask id="Task_14fs54a" name="Termin vereinbaren" camunda:formKey="embedded:app:forms/terminVereinbaren.html" camunda:assignee="demo">
       <bpmn:incoming>SequenceFlow_1e9vdk0</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0hyflpi</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_00a5tws</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:serviceTask id="Task_0w0vu1h" name="Rückzahlung-rate berechnen" camunda:class="MASWF.kreditantrag.berechenRückzahlung">
       <bpmn:incoming>SequenceFlow_1elbi1f</bpmn:incoming>
@@ -101,7 +100,7 @@
       <bpmn:extensionElements>
         <camunda:formData />
       </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_1byodvo</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_08dfsgz</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1q1g96r</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sendTask id="Task_0lhwg2m" name="Kredit-information verschicken" camunda:class="MASWF.kreditantrag.MailKreditvertragSenden">
@@ -185,14 +184,15 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{kreditwunschVorhanden == false}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1q1g96r" sourceRef="Task_0um4h11" targetRef="ExclusiveGateway_0q4eij6" />
-    <bpmn:sequenceFlow id="SequenceFlow_1byodvo" sourceRef="IntermediateThrowEvent_0xlets5" targetRef="Task_0um4h11" />
-    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_0xlets5">
-      <bpmn:incoming>SequenceFlow_0hyflpi</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1byodvo</bpmn:outgoing>
+    <bpmn:sequenceFlow id="SequenceFlow_00a5tws" sourceRef="Task_14fs54a" targetRef="IntermediateThrowEvent_1ye4gpk" />
+    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1ye4gpk">
+      <bpmn:incoming>SequenceFlow_00a5tws</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_08dfsgz</bpmn:outgoing>
       <bpmn:timerEventDefinition>
-        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">termin</bpmn:timeDate>
+        <bpmn:timeDate xsi:type="bpmn:tFormalExpression">${termin}</bpmn:timeDate>
       </bpmn:timerEventDefinition>
     </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_08dfsgz" sourceRef="IntermediateThrowEvent_1ye4gpk" targetRef="Task_0um4h11" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_039isxc">
@@ -298,13 +298,6 @@
         <di:waypoint xsi:type="dc:Point" x="1373" y="551" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1272" y="545" width="90" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_0hyflpi_di" bpmnElement="SequenceFlow_0hyflpi">
-        <di:waypoint xsi:type="dc:Point" x="1544" y="320" />
-        <di:waypoint xsi:type="dc:Point" x="1609" y="320" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1531.5" y="299" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_14nn2c3_di" bpmnElement="Task_14fs54a">
@@ -509,21 +502,26 @@
           <dc:Bounds x="1807" y="314" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_1byodvo_di" bpmnElement="SequenceFlow_1byodvo">
-        <di:waypoint xsi:type="dc:Point" x="1645" y="320" />
-        <di:waypoint xsi:type="dc:Point" x="1679" y="320" />
-        <di:waypoint xsi:type="dc:Point" x="1679" y="320" />
-        <di:waypoint xsi:type="dc:Point" x="1712" y="320" />
+      <bpmndi:BPMNEdge id="SequenceFlow_00a5tws_di" bpmnElement="SequenceFlow_00a5tws">
+        <di:waypoint xsi:type="dc:Point" x="1544" y="320" />
+        <di:waypoint xsi:type="dc:Point" x="1603" y="320" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1694" y="313.5" width="0" height="13" />
+          <dc:Bounds x="1573.5" y="299" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="IntermediateCatchEvent_009v0yv_di" bpmnElement="IntermediateThrowEvent_0xlets5">
-        <dc:Bounds x="1609" y="302" width="36" height="36" />
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_03axpy1_di" bpmnElement="IntermediateThrowEvent_1ye4gpk">
+        <dc:Bounds x="1603" y="302" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1626.671" y="340.881" width="0" height="13" />
+          <dc:Bounds x="1620.178" y="342" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_08dfsgz_di" bpmnElement="SequenceFlow_08dfsgz">
+        <di:waypoint xsi:type="dc:Point" x="1639" y="320" />
+        <di:waypoint xsi:type="dc:Point" x="1712" y="320" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1675.5" y="299" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
