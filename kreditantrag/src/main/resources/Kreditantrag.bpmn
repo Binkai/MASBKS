@@ -96,12 +96,9 @@
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_1elbi1f" sourceRef="ExclusiveGateway_06fcgar" targetRef="Task_0w0vu1h" />
     <bpmn:sequenceFlow id="SequenceFlow_09xh3yv" sourceRef="Task_0cidgz0" targetRef="Task_04uwmv3" />
-    <bpmn:userTask id="Task_0um4h11" name="Gespräch durchführen" camunda:assignee="demo">
+    <bpmn:userTask id="Task_0um4h11" name="Gespräch durchführen" camunda:formKey="embedded:app:forms/gespraechsfazit.html" camunda:assignee="demo">
       <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="test1" label="Laufzeit Verändern?" type="boolean" defaultValue="false" />
-          <camunda:formField id="test2" label="Immernoch Kreditwunsch?" type="boolean" defaultValue="true" />
-        </camunda:formData>
+        <camunda:formData />
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0hyflpi</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1q1g96r</bpmn:outgoing>
@@ -166,10 +163,10 @@
       <bpmn:outgoing>SequenceFlow_1gg6kpn</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_0iwpeux" name="nein" sourceRef="ExclusiveGateway_1l0s99n" targetRef="Task_0cidgz0">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{test1 == false}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{laufzeitVeraendern == false}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1gg6kpn" name="ja" sourceRef="ExclusiveGateway_1l0s99n" targetRef="ExclusiveGateway_06fcgar">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{test1 == true}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{laufzeitVeraendern == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:exclusiveGateway id="ExclusiveGateway_0q4eij6" name="Kreditwunsch immernoch vorhanden?">
       <bpmn:incoming>SequenceFlow_1q1g96r</bpmn:incoming>
@@ -178,13 +175,13 @@
       <bpmn:outgoing>SequenceFlow_1tmxg0v</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_0mtelcz" name="ja" sourceRef="ExclusiveGateway_0q4eij6" targetRef="ExclusiveGateway_1l0s99n">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{test2 == true}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{kreditwunschVorhanden == true}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_03skury" name="nein" sourceRef="ExclusiveGateway_0q4eij6" targetRef="EndEvent_0d9ushj">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">false</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1tmxg0v" name="" sourceRef="ExclusiveGateway_0q4eij6" targetRef="EndEvent_0d9ushj">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{test2 == false}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{kreditwunschVorhanden == false}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1q1g96r" sourceRef="Task_0um4h11" targetRef="ExclusiveGateway_0q4eij6" />
   </bpmn:process>
