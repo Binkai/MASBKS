@@ -1,5 +1,5 @@
 <form class="form-horizontal">
-<script
+
 <div class="form-group">
 		Anrede <select cam-variable-type="String" cam-variable-name="anrede"
 			name="anrede" readonly="true">
@@ -33,7 +33,7 @@
 	</div>
 	
 	<div class="form-group">
-		Laufzeit soll neu berechnet werden? <input type="checkbox" onclick='laufzeitTrue();' name='laufzeitVeraendern'
+		Laufzeit soll neu berechnet werden? <input type="checkbox" onclick='laufzeitTrue();' name='laufzeitVeraendern' id="laufzeitVeraendern"
 			cam-variable-name="laufzeitVeraendern" cam-variable-type="Boolean" />
 	</div>
 	
@@ -42,9 +42,7 @@
 function laufzeitTrue()
 {
 	var leer="";
-	var box=" <label for="wunschlaufzeitKredit">Wunschlaufzeit des Kredits</label> <input class="form-control"
-			cam-variable-type="Long" cam-variable-name="wunschlaufzeitKredit"
-			name="wunschlaufzeitKredit" required="true" />";
+	var box="<label for=\"wunschlaufzeitKredit\">Wunschlaufzeit des Kredits</label> <input class=\"form-control\"cam-variable-type=\"Long\" cam-variable-name=\"wunschlaufzeitKredit\"name=\"wunschlaufzeitKredit\" required=\"true\" />";
   if (document.getElementById('laufzeitVeraendern').checked) 
   {
   	document.getElementById('laufzeit').innerHTML= box;
@@ -60,7 +58,7 @@ function laufzeitTrue()
 	<div class="form-group" id="laufzeit">
 		
 	</div>
-}
+
 	
 	
 
