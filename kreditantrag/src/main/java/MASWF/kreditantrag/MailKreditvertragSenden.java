@@ -58,10 +58,10 @@ public class MailKreditvertragSenden implements JavaDelegate{
 //		email.setAuthentication("XXXX@gmx.de", "XXXXXXX");
 //		email.addTo(toEmail);
 //		email.setFrom("XXXXXX@gmx.de");
-		email.setHostName("mail.htw-berlin.de");
-		email.setAuthentication("s0000000", "PASSWORT");
+		email.setHostName("smtp.web.de");
+		email.setAuthentication("bks.bank", "masbks17183");
 		email.addTo(toEmail);
-		email.setFrom("s0000000@htw-berlin.de");
+		email.setFrom("bks.bank@web.de");
 		email.setSubject(subject);
 		email.setMsg(mailtext);
 		email.attach(ds, fileName, encoding);
