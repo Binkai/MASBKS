@@ -20,7 +20,7 @@ public class dbKreditInsert implements JavaDelegate {
 		kredit.setKundenID(kunde.getKundeID());
 		kredit.setLaufzeit((Long) exec.getVariable("wunschlaufzeitKredit"));
 		kredit.setRueckzahlungrate((Float) exec.getVariable("rueckzahlungsrate"));
-		kredit.setStartdatum((Date) exec.getVariable("geburtsdatum"));
+		kredit.setStartdatum((Date) exec.getVariable("termin"));
 		kredit.setVerwendungszweck(exec.getVariable("verwendungszweck").toString());
 		KreditDaoImpl kdao = new KreditDaoImpl();
 		if(kdao.insertKredit(kredit) == true){
