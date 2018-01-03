@@ -13,7 +13,7 @@ public class MailAbsageUnwuerdig implements JavaDelegate {
 		String vorname = (String) execution.getVariable("vorname");
 		String nachname = (String) execution.getVariable("nachname");
 		String email = (String) execution.getVariable("email");
-		String begruendung= (String) execution.getVariable("Begründung");
+		String begruendung= (String) execution.getVariable("begruendung");
 
 		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" + begruendung + "\n Mit freundlichen Grüßen,\n die Berliner Bank BKS.";
 
@@ -28,16 +28,17 @@ public class MailAbsageUnwuerdig implements JavaDelegate {
 		MultiPartEmail email = new MultiPartEmail();
 		email.setCharset("utf-8");
 		email.setSSL(true);
-		email.setSmtpPort(587);
+		
 //		email.setSmtpPort(587) -> diese Informationen sind je Provider unterschiedlich
 //		email.setHostName("mail.gmx.net"); -> bei GMX muss z.B. die Verwendung online freigeschaltet werden
 //		email.setAuthentication("XXXX@gmx.de", "XXXXXXX");
 //		email.addTo(toEmail);
 //		email.setFrom("XXXXXX@gmx.de");
-		email.setHostName("smtp.web.de");
-		email.setAuthentication("bks.bank", "masbks17183");
+		email.setSmtpPort(587); //-> diese Informationen sind je Provider unterschiedlich
+		email.setHostName("mail.gmx.net"); //-> bei GMX muss z.B. die Verwendung online freigeschaltet werden
+		email.setAuthentication("bks.bank@gmx.de", "masbks17183");
 		email.addTo(toEmail);
-		email.setFrom("bks.bank@web.de");
+		email.setFrom("bks.bank@gmx.de");
 		email.setSubject(subject);
 		email.setMsg(mailtext);
 		email.send();

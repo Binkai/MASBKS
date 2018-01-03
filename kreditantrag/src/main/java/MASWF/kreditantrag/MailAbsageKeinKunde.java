@@ -28,16 +28,12 @@ public class MailAbsageKeinKunde implements JavaDelegate {
 		MultiPartEmail email = new MultiPartEmail();
 		email.setCharset("utf-8");
 		email.setSSL(true);
-		email.setSmtpPort(587);
-//		email.setSmtpPort(587) -> diese Informationen sind je Provider unterschiedlich
-//		email.setHostName("mail.gmx.net"); -> bei GMX muss z.B. die Verwendung online freigeschaltet werden
-//		email.setAuthentication("XXXX@gmx.de", "XXXXXXX");
-//		email.addTo(toEmail);
-//		email.setFrom("XXXXXX@gmx.de");
-		email.setHostName("smtp.web.de");
-		email.setAuthentication("bks.bank", "masbks17183");
+		email.setSmtpPort(587); //-> diese Informationen sind je Provider unterschiedlich
+		email.setHostName("mail.gmx.net"); //-> bei GMX muss z.B. die Verwendung online freigeschaltet werden
+		email.setAuthentication("bks.bank@gmx.de", "masbks17183");
 		email.addTo(toEmail);
-		email.setFrom("bks.bank@web.de");
+		email.setFrom("bks.bank@gmx.de");
+
 		email.setSubject(subject);
 		email.setMsg(mailtext);
 		email.send();
