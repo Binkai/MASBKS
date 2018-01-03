@@ -22,6 +22,7 @@ public class MailKreditvertragSenden implements JavaDelegate{
 		long wunschlaufzeitKredit = (Long)execution.getVariable("wunschlaufzeitKredit");
 		String toEmail = (String) execution.getVariable("email");
 		
+		
 		String subject = "Ihr Kreditvertrag";
 		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" + "\nder Kredit in Hoehe von "+wunschhoeheKredit+" wurde fuer einen Zeitraum von "+ wunschlaufzeitKredit+" gestattet."+
 		"\nEine Kopie des Kreditvertrags befindet sich im Anhang dieser Mail."
