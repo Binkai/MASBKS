@@ -24,10 +24,10 @@ public class MailKreditvertragSenden implements JavaDelegate{
 		
 		
 		String subject = "Ihr Kreditvertrag";
-		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" + "\nder Kredit in Hoehe von "+wunschhoeheKredit+" wurde fuer einen Zeitraum von "+ wunschlaufzeitKredit+" gestattet."+
+		String mailtext = "Sehr geehrte/er " + anrede + " " + vorname + " " + nachname + ",\n" + "\nder Kredit in Hoehe von "+wunschhoeheKredit+" Euro wurde fuer einen Zeitraum von "+ wunschlaufzeitKredit+" Monaten gestattet."+
 		"\nEine Kopie des Kreditvertrags befindet sich im Anhang dieser Mail."
 		+ "\nBitte prüfen Sie den Kreditvertrag sehr genau und geben uns binnen 14 Tagen eine Rückmeldung ob Korrekturen notwendig sind."
-		+ "\nVielen Dank das Sie sich fuer die Berliner Bank BKS entschieden haben. " + "\n\nMit freundlichen Grüßen,\n die Berliner Bank BKS";
+		+ "\nVielen Dank das Sie sich fuer die Berliner Bank BKS entschieden haben. " + "\n\nMit freundlichen Grüßen,\ndie Berliner Bank BKS";
 	
 		// https://docs.camunda.org/manual/7.5/user-guide/process-engine/variables/
 
