@@ -32,10 +32,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Sharon-Maria/Desktop/fontbox-2.0.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sharon-Maria/Desktop/pdfbox-2.0.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sharon-Maria/Desktop/pdfbox-tools-2.0.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sharon-Maria/Desktop/preflight-2.0.8.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sharon-Maria/Desktop/xmpbox-2.0.8.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/pdfbox-2.0.8.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/fontbox-2.0.8.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/pdfbox-tools-2.0.8.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/preflight-2.0.8.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/xmpbox-2.0.8.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

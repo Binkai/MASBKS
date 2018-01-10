@@ -14,7 +14,7 @@ public class berechenRückzahlung implements JavaDelegate {
 		Long laufzeit = (Long) exec.getVariable("wunschlaufzeitKredit");
 		Float monateinkommen = ((Kunde) exec.getVariable("Kunde")).getMonateinkommen();
 		do {
-			rate = (float) (kredithoehe/laufzeit) + (float) (kredithoehe * 0.009);
+			rate = (float) (kredithoehe / laufzeit) + (float) (kredithoehe * 0.009);
 			laufzeit++;
 		} while (rate > monateinkommen / 2);
 		laufzeit--;

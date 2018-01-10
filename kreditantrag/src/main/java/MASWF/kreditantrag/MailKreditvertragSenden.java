@@ -49,7 +49,7 @@ public class MailKreditvertragSenden implements JavaDelegate{
 	public void sendEmail(String mailtext, String subject, String toEmail, ByteArrayDataSource ds, String fileName, String encoding) throws EmailException {
 		//https://anleitungen.rz.htw-berlin.de/de/email/e-mail_programm/
 
-		MultiPartEmail email = new MultiPartEmail();
+		MultiPartEmail email = new MultiPartEmail(); 
 		email.setCharset("utf-8");
 		email.setSSL(true);
 	
