@@ -12,6 +12,7 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.variable.value.FileValue;
 
+@SuppressWarnings("deprecation")
 public class MailKreditvertragSenden implements JavaDelegate{
 	public void execute(DelegateExecution execution) throws Exception {
 

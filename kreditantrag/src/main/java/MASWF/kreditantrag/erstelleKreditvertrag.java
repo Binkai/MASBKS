@@ -25,7 +25,6 @@ import org.camunda.bpm.engine.variable.value.FileValue;
  */
 public class erstelleKreditvertrag implements JavaDelegate {
 	private final String PDFSpeichern = System.getProperty("user.home")+"/Kreditvertrag.pdf";
-	private PDDocument pdfdoc;
 
 	@Override
 	public void execute(DelegateExecution exec) throws Exception {
@@ -50,11 +49,22 @@ public class erstelleKreditvertrag implements JavaDelegate {
 		PDPageContentStream contentStream = new PDPageContentStream(document, page);
 		contentStream.beginText();
 		contentStream.setLeading(14.5f);
+		contentStream.setFont( font, 12 );
+		contentStream.newLineAtOffset(415, 750);
+		contentStream.showText(exec.getVariable("vorname").toString()+ " "+ Nachname);
+		contentStream.newLine();
+		contentStream.showText(exec.getVariable("adresse").toString());
+		contentStream.newLineAtOffset(-355, -15);
+		contentStream.showText("BKS-Bank");
+		contentStream.newLine();
+		contentStream.showText("Neuruppiner Straße 7");
+		contentStream.endText();
+		contentStream.beginText();
 		String title = "Kreditvertrag";
 		int fontSize = 16;
 		float titleWidth = font.getStringWidth(title) / 1000 * fontSize;
 		contentStream.setFont( font, fontSize );
-		contentStream.newLineAtOffset((page.getMediaBox().getWidth() - titleWidth) / 2, 700); //Mitte der x-Achse
+		contentStream.newLineAtOffset((page.getMediaBox().getWidth() - titleWidth) / 2, 690); //Mitte der x-Achse
 		contentStream.showText("Kreditvertrag");
 		contentStream.newLineAtOffset(-200,-75);
 		contentStream.setFont( font, 12 );
@@ -64,7 +74,7 @@ public class erstelleKreditvertrag implements JavaDelegate {
 		contentStream.newLine();
 		contentStream.showText("und hat eine Laufzeit von "+laufzeit+" Monaten");
 		contentStream.newLine();
-		contentStream.showText("Anrede Name hat sich dazu verpflichtet jeden Monat "+ rueckzahlung+"€ als Rückzahlung zu begleichen.");
+		contentStream.showText(Anrede +" "+ Nachname +" hat sich dazu verpflichtet jeden Monat "+ rueckzahlung+"€ als Rückzahlung zu begleichen.");
 		contentStream.newLine();
 		contentStream.showText("Die Rückzahlung beginnt am "+ startdatum);
 		contentStream.newLine();
