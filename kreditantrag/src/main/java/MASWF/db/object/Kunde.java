@@ -1,7 +1,11 @@
 package MASWF.db.object;
 
 import java.sql.Date;
-
+/**
+ * Kundenklasse die alle Information über die Kunden enthält.
+ * @author kaikuhfeld
+ *
+ */
 public class Kunde {
 	private int KundeID;
 	private String Vorname;

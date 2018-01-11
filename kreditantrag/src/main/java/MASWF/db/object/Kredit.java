@@ -1,7 +1,11 @@
 package MASWF.db.object;
 
 import java.util.Date;
-
+/**
+ * Kreditklasse die alle Information über einen Kredit besitzt.
+ * @author kaikuhfeld
+ *
+ */
 public class Kredit {
 	private int KreditID;
 	private float Kredithoehe;

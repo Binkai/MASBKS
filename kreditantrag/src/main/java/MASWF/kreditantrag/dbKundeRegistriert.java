@@ -7,7 +7,12 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 
 import MASWF.db.DAO.KundeDaoImpl;
 import MASWF.db.object.Kunde;
-
+/**
+ * nach Eingang des Kreditantrags wird mit Hilfe der KundenDao geprüft ob 
+ * der Kunde bereits registriert ist.
+ * @author kaikuhfeld
+ *
+ */
 
 public class dbKundeRegistriert implements JavaDelegate {
 

@@ -4,7 +4,11 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
 import MASWF.db.object.Kunde;
-
+/**
+ * Berechnet die Rückzahlung mithilfe der Laufzeit und Kredithoehe sowie des monatl. Einkommen	
+ * @author kaikuhfeld
+ *
+ */
 public class berechenRückzahlung implements JavaDelegate {
 
 	@Override

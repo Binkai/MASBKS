@@ -8,7 +8,11 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 import MASWF.db.DAO.KreditDaoImpl;
 import MASWF.db.object.Kredit;
 import MASWF.db.object.Kunde;
-
+/**
+ * Erstellt Kreditobjekt und ruft den KreditDao auf.
+ * @author kaikuhfeld
+ *
+ */
 public class dbKreditInsert implements JavaDelegate {
 
 	@Override

@@ -2,8 +2,16 @@ package MASWF.db.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+/**
+ * JDBC Klasse die die Kontrolle über die Verbindungen hat.
+ * @author kaikuhfeld
+ *
+ */
 public class JDBCUtil implements dbCred {
+	/**
+	 * Verbindet sich mit der Datenbank.
+	 * @return die Connection
+	 */
 	public Connection setConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -14,7 +22,10 @@ public class JDBCUtil implements dbCred {
 			throw new RuntimeException(e);
 		}
 	}
-
+/**
+ * Schließt die Connection
+ * @param connection welche geschlossen werden soll.
+ */
 	public void closeConnection(final Connection connection) {
 		try {
 			if (connection != null) {
@@ -24,7 +35,10 @@ public class JDBCUtil implements dbCred {
 			throw new RuntimeException(e);
 		}
 	}
-
+/**
+ * Wirft keine Exception wenn die Connection nicht richtig geschlossen wird.
+ * @param connection welche ohne Exception geschlossen wird.
+ */
 	public void closeConnectionQuietly(final Connection connection) {
 		try {
 			closeConnection(connection);

@@ -4,7 +4,12 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
-
+/**
+ * Bereitet Absage-Mail vor und entnimmt die Begruendung aus der
+ * DMN Tabelle
+ * @author kaikuhfeld
+ *
+ */
 public class MailAbsageUnwuerdig implements JavaDelegate {
 
 	public void execute(DelegateExecution execution) throws Exception {

@@ -4,7 +4,11 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
 import MASWF.db.object.Kunde;
-
+/**
+ * Entnimmt dem Kundenobjekt den Score und speichert ihn ab.
+ * @author kaikuhfeld
+ *
+ */
 public class dbKundeScore implements JavaDelegate{
 
 	@Override

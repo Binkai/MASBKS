@@ -11,7 +11,13 @@ import org.apache.commons.mail.MultiPartEmail;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.variable.value.FileValue;
-
+/**
+ * informiert den Kunden ueber den erfolgreichen Vergabeprozess
+ * fasst die grundlegenden Information in Text zusammen
+ * und versendet den Kreditvertrag als E-Mail
+ * @author kaikuhfeld
+ *
+ */
 @SuppressWarnings("deprecation")
 public class MailKreditvertragSenden implements JavaDelegate{
 	public void execute(DelegateExecution execution) throws Exception {

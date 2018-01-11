@@ -4,7 +4,11 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
-
+/**
+ * Bereitet AbsageMail vor sollte der Kunde noch nicht registriert sein.
+ * @author kaikuhfeld
+ *
+ */
 public class MailAbsageKeinKunde implements JavaDelegate {
 
 	public void execute(DelegateExecution execution) throws Exception {
